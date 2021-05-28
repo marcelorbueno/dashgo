@@ -25,7 +25,7 @@ const options = {
     enabled: false,
   },
   tooltip: {
-    enabled: false,
+    theme: 'dark',
   },
   xaxis: {
     type: 'datetime',
@@ -58,7 +58,7 @@ const options = {
 
 const series = [
   {
-    name: 'series1', 
+    name: 'inscritos', 
     data: [31, 120, 10, 28, 61, 18, 109]
   }
 ]
