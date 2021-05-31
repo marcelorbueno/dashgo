@@ -77,6 +77,7 @@ export default function Dashboard() {
             bg='gray.800'
             borderRadius='8'
             pb='4'
+            h="-webkit-fit-content"
           >
             <Text fontSize='lg' mb='4'>Inscritos da semana</Text>
             <Chart
@@ -92,6 +93,7 @@ export default function Dashboard() {
             bg='gray.800'
             borderRadius='8'
             pb='4'
+            h="-webkit-fit-content"
           >
             <Text fontSize='lg' mb='4'>Taxa de abertura</Text>
             <Chart
