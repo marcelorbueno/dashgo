@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Button, Icon, Table, Thead, Tr, Th, Checkbox, Tbody, Td, Text, useBreakpointValue, Spinner, Link } from "@chakra-ui/react"
+import { GetServerSideProps } from "next"
 import NextLink from "next/link"
 import { useState } from "react"
 import { RiAddLine, RiPencilLine } from "react-icons/ri"
@@ -20,7 +21,7 @@ export default function UserList() {
 
   const { data, isLoading, isFetching, error } = useUsers(page)
 
-  async function handlePrefetchUser(userId: number) {
+  async function handlePrefetchUser(userId: string) {
     await queryClient.prefetchQuery(['user', userId], async () => {
       const response = await api.get(`users/${userId}`)
 
@@ -101,7 +102,7 @@ export default function UserList() {
                         </Td>
                         <Td>
                           <Box>
-                            <Link color="purple.400" onMouseEnter={() => handlePrefetchUser(Number(user.id))}>
+                            <Link color="purple.400" onMouseEnter={() => handlePrefetchUser(user.id)}>
                               <Text fontWeight="bold">{user.name}</Text>
                             </Link>
                             <Text fontSize="sm" color="gray.300">{user.email}</Text>
@@ -119,7 +120,7 @@ export default function UserList() {
                                 fontSize="sm"
                                 colorScheme="purple"
                                 leftIcon={<Icon as={RiPencilLine} />}
-                                onMouseEnter={() => handlePrefetchUser(Number(user.id))}
+                                onMouseEnter={() => handlePrefetchUser(user.id)}
                               >
                                 Editar
                               </Button>
