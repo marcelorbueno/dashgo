@@ -24,7 +24,7 @@ export function Pagination({
   currentPage = 1,
   onPageChange
 }: PaginationProps) {
-  const lastPage = Math.floor(totalCountOfRegisters / registersPerPage)
+  const lastPage = Math.ceil(totalCountOfRegisters / registersPerPage)
 
   const previousPage = currentPage > 1
     ? generatePagesArray(currentPage - siblingsCount - 1, currentPage - 1)
